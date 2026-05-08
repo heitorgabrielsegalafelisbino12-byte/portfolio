@@ -656,10 +656,109 @@ section{
 }
 /* CELULARES PEQUENOS */
 
-@media (max-width: 480px){
+/* tablets grandes e notebooks pequenos */
+@media (max-width: 1024px){
+
+    .cabecalho div{
+        margin-top: 100px;
+    }
 
     h1{
-        font-size: 1.9rem;
+        font-size: 3rem;
+    }
+
+    .cabecalho-sub-titulo{
+        font-size: 1.6rem;
+    }
+
+    .foto-perfil{
+        width: 280px;
+        height: 280px;
+    }
+
+    .sobre{
+        padding: 3rem 1rem;
+        margin-top: 120px;
+    }
+
+    .projetos{
+        padding: 3rem 1rem;
+    }
+
+    .contato{
+        padding: 4rem 1rem;
+    }
+}
+
+/* tablets */
+@media (max-width: 900px){
+
+    .menu{
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .projetos-conteudo{
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .formacao{
+        padding: 4rem 1rem;
+    }
+}
+
+/* celulares grandes */
+@media (max-width: 600px){
+
+    .navegacao{
+        padding: 1rem;
+    }
+
+    .menu{
+        gap: 0.8rem;
+    }
+
+    .menu-link{
+        font-size: 0.85rem;
+    }
+
+    h1{
+        font-size: 2.2rem;
+    }
+
+    .cabecalho-sub-titulo{
+        font-size: 1.1rem;
+    }
+
+    .foto-perfil{
+        width: 200px;
+        height: 200px;
+    }
+
+    .sobre-titulo,
+    .projetos-titulo,
+    .contato-titulo{
+        font-size: 1.8rem;
+    }
+
+    .sobre-conteudo{
+        padding: 1.2rem;
+    }
+
+    .formulario-contato{
+        padding: 1.2rem;
+    }
+
+    .QR-card{
+        width: 95%;
+    }
+}
+
+/* celulares pequenos */
+@media (max-width: 400px){
+
+    h1{
+        font-size: 1.8rem;
     }
 
     .cabecalho-sub-titulo{
@@ -667,31 +766,29 @@ section{
     }
 
     .foto-perfil{
-        width: 180px;
-        height: 180px;
-    }
-
-    .sobre-titulo,
-    .projetos-titulo,
-    .contato-titulo{
-        font-size: 1.7rem;
+        width: 160px;
+        height: 160px;
     }
 
     .menu{
-        gap: 0.7rem;
+        flex-direction: column;
+        align-items: center;
     }
 
     .menu-link{
         font-size: 0.8rem;
     }
 
-    .sobre-conteudo,
-    .formulario-contato,
-    .QR-card{
-        padding: 1rem;
+    .sobre-paragrafo{
+        font-size: 1rem;
     }
 
-    .info-qr{
-        font-size: 1.3rem;
+    .paragrafo-qr{
+        font-size: 0.9rem;
     }
+}
+
+/* evita quebra horizontal em qualquer tela */
+img, div, section{
+    max-width: 100%;
 }
