@@ -7,9 +7,11 @@
     <title>Heitor | Portfólio</title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
 <body>
+    <div id="particles-js"></div>
 
     <!-- MENU -->
 
@@ -173,7 +175,7 @@
             Entre em contato
         </h2>
 
-        <form class="formulario-contato" id="formulario">
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
 
             <div class="grupo-form">
 
@@ -181,6 +183,7 @@
                     type="text"
                     placeholder="Nome"
                     class="campo-form"
+                    id="nome"
                 >
 
             </div>
@@ -190,6 +193,8 @@
                 <textarea
                     class="campo-form"
                     placeholder="Envie sua mensagem aqui..."
+                    rows="6"
+                    id="mensagem"
                 ></textarea>
 
             </div>
@@ -205,6 +210,50 @@
 
     </section>
 
+          <!-- QR CODE -->
+            <div class="QR-card">
+
+                    <img
+                        src="./img/qr.png"
+                        alt="QR Code"
+                        class="qr-imagem"
+                    >
+
+                <div class="scan-qr">
+
+                    <h3 class="info-qr">
+                        QR Code
+                    </h3>
+
+                    <p class="paragrafo-qr">
+                        Escaneie o QR Code para acessar meu portfólio online!
+                    </p>
+
+                </div>
+            </div>
+
+
+    <script>
+    function enviarWhats(event) {
+
+        event.preventDefault();
+
+        const nome = document.getElementById('nome').value;
+        const mensagem = document.getElementById('mensagem').value;
+
+        const telefone = "5519997059056";
+
+        const texto =
+            `Olá! Meu nome é ${nome} e gostaria de entrar em contato com você. Minha mensagem é: ${mensagem}`;
+
+        const msgFormatada = encodeURIComponent(texto);
+
+        const url =
+            `https://wa.me/${telefone}?text=${msgFormatada}`;
+
+        window.open(url, '_blank');
+    }
+</script>
 </body>
 
 </html>
