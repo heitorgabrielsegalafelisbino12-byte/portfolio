@@ -158,8 +158,8 @@ h1 {
 /* SOBRE */
 
 .sobre{
-    padding: 6rem 2rem;
-    margin-top: 250px;
+    padding: 2rem 2rem;
+    margin-top: 200px;
 }
 
 .sobre-titulo{
@@ -191,7 +191,7 @@ h1 {
 /* PROJETOS */
 
 .projetos{
-    padding: 6rem 2rem;
+    padding: 0rem 2rem;
 }
 
 .projetos-titulo{
@@ -341,6 +341,48 @@ textarea.campo-form{
         0 5px 15px rgba(79, 70, 229, 0.4);
 }
 
+
+/* formação */
+.formacao{
+    padding: 8rem 2rem;
+}
+
+.formacao h2{
+    color: var(--claro) !important;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+
+.formacao-conteudo{
+    padding: 2rem;
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+
+    backdrop-filter: blur(10px);
+
+    background: rgba(33, 33, 33, 0.25);
+}
+
+.formacao-card{
+    background: rgba(33, 33, 33, 0.25);
+
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+
+    backdrop-filter: blur(5px);
+
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: all 0.5s ease;
+}
+
 @keyframes flutuar {
     0%, 100% {
         opacity: 1;
@@ -416,6 +458,8 @@ section{
     font-size: 1rem;
     line-height: 1.5;
 }
+
+
 /* RESPONSIVO */
 
 /* RESPONSIVO */
@@ -514,29 +558,12 @@ section{
 
     /* QR CODE */
 
-.QR-card{
-    margin-top: 3rem;
+    .QR-card{
+        width: 100%;
+        max-width: 320px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    max-width: 350px;
-
-    padding: 1.5rem;
-
-    border-radius: 16px;
-    border: 1px solid var(--vidro);
-
-    backdrop-filter: blur(10px);
-
-    background: rgba(33, 33, 33, 0.25);
-
-    margin-left: auto;
-    margin-right: auto;
-}
+        padding: 1.2rem;
+    }
 
     .qr-imagem{
         width: 100%;
@@ -559,7 +586,74 @@ section{
     }
 }
 
+/* BOTÃO IDIOMA NO MESMO ESTILO DOS CARDS */
+.botao-idioma{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    gap: 8px;
+
+    padding: 0.6rem 1rem;
+
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+
+    background: rgba(33, 33, 33, 0.25);
+    backdrop-filter: blur(10px);
+
+    color: var(--claro);
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* hover igual aos cards */
+.botao-idioma:hover{
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+}
+
+/* efeito de brilho igual projeto-card */
+.botao-idioma::before{
+    content: "";
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(79, 70, 229, 0.2),
+        transparent
+    );
+
+    top: 0;
+    left: -100%;
+
+    transition: 0.5s;
+}
+
+.botao-idioma:hover::before{
+    left: 100%;
+}
+
+/* texto/bandeiras */
+.botao-idioma span{
+    transition: 0.3s ease;
+}
+
+/* destaque visual ao alternar */
+.botao-idioma.ativo{
+    border-color: var(--primaria);
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.3);
+}
 /* CELULARES PEQUENOS */
 
 @media (max-width: 480px){
