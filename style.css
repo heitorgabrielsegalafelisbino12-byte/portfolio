@@ -514,12 +514,29 @@ section{
 
     /* QR CODE */
 
-    .QR-card{
-        width: 100%;
-        max-width: 320px;
+.QR-card{
+    margin-top: 3rem;
 
-        padding: 1.2rem;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 350px;
+
+    padding: 1.5rem;
+
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+
+    backdrop-filter: blur(10px);
+
+    background: rgba(33, 33, 33, 0.25);
+
+    margin-left: auto;
+    margin-right: auto;
+}
 
     .qr-imagem{
         width: 100%;
