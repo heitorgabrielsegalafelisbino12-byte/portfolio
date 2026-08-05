@@ -40,20 +40,32 @@
             </li>
             
              <li>
-                <a href="#carta" class="menu-link" data-translate="Carta">Cartas de Recomendação</a>
+                <a href="#carta" class="menu-link" data-translate="Cartamenu">Cartas de Recomendação</a>
+            </li>
+
+            <li>
+                <a href="login.html" class="menu-link">Entrar</a>
+            </li>
+
+            <li>
+                <a href="register.html" class="menu-link">Cadastrar</a>
             </li>
 
             <li>
                 <a href="#qr-code" class="menu-link" data-translate="qrCodeMenu">QR Code</a>
             </li>
 
-            <button onclick="trocarIdioma()" class="botao-idioma">
-                EN / PT
-            </button>
+            <li>
+                <button onclick="trocarIdioma()" class="botao-idioma">
+                    EN / PT
+                </button>
+            </li>
             
         </ul>
 
     </nav>
+
+    <div class="user-status" id="user-status"></div>
 
     <!-- CABEÇALHO -->
 
@@ -67,7 +79,7 @@
                 class="foto-perfil"
             >
 
-            <h1>Heitor Gabriel</h1>
+            <h1 data-translate="titulo">Heitor Gabriel</h1>
 
             <p class="cabecalho-sub-titulo" data-translate="subtitulo">
                 Sou um desenvolvedor front-end
@@ -76,6 +88,61 @@
         </div>
 
     </main>
+
+    <section id="carta" class="carta comentarios-area">
+        <div class="comentarios-header">
+            <div>
+                <h2 data-translate="Cartamenu">Cartas de Recomendação</h2>
+                <p class="carta-intro" data-translate="commentsIntro">
+                    Leia e deixe sua recomendação abaixo. Comentários de ódio podem ser removidos.
+                </p>
+            </div>
+            <div class="comentarios-header-actions">
+                <a href="#inicio" class="botao-form botao-voltar-inline">Voltar</a>
+            </div>
+        </div>
+
+        <div class="comentarios-secao">
+            <aside class="comentarios-painel">
+                <div class="auth-required" id="auth-required-message">
+                    <p>Você precisa <a href="login.html">entrar</a> para enviar comentários.</p>
+                </div>
+
+                <form id="comentario-form" class="comentario-form hidden">
+                    <h3 data-translate="commentsTitle">Deixe um comentário</h3>
+                    <p class="comentario-autor">
+                        <strong data-translate="loggedAs">Logado como</strong>:
+                        <span id="current-user-name">Usuário</span>
+                    </p>
+
+                    <div class="grupo-form">
+                        <textarea
+                            id="comentario-texto"
+                            class="campo-form"
+                            placeholder="Escreva seu comentário..."
+                            rows="5"
+                            data-translate-placeholder="commentTextPlaceholder"
+                        ></textarea>
+                    </div>
+
+                    <div class="grupo-form">
+                        <input type="email" id="comentario-email" class="campo-form" placeholder="Seu email (para verificação)" data-translate-placeholder="emailPlaceholder">
+                    </div>
+
+                    <button type="submit" class="botao-form" data-translate="commentSubmit">
+                        Enviar comentário
+                    </button>
+                </form>
+            </aside>
+
+            <section class="comentario-lista" id="comentario-lista">
+                <h3 class="comentario-lista-titulo">Comentários</h3>
+                <p class="sem-comentarios" data-translate="noComments">
+                    Nenhum comentário ainda. Seja o primeiro!
+                </p>
+            </section>
+        </div>
+    </section>
 
     <!-- SOBRE -->
 
@@ -95,8 +162,8 @@
 
         </div>
 
+    </section>
 
-        
     <section id="formacao" class="formacao">
 
         <h2 class="formacao-titulo" data-translate="formacao">
@@ -110,9 +177,6 @@
             </p>
 
         </div>
-
-    </section>
-
 
     </section>
 
@@ -139,71 +203,39 @@
                 <div class="textos-projetos">
 
                     <h3 class="info-projeto" data-translate="projeto1">
-                        Projeto 1
+                        NG Bank
                     </h3>
 
                     <p class="paragrafo-projeto" data-translate="projeto1Descricao">
-                        Descrição do projeto 1.
+                        Um sistema bancário, em forma de paródia de um grande banco chamado NG Cash.
                     </p>
 
                 </div>
 
             </div>
 
-            <!-- PROJETO 2 -->
-
-            <div class="projeto-card">
-
-                <img
-                    src="./img/projeto2.png"
-                    alt="Projeto 2"
-                    class="projetos-imagem"
-                >
-
-                <div class="textos-projetos">
-
-                    <h3 class="info-projeto" data-translate="projeto2">
-                        Projeto 2
-                    </h3>
-
-                    <p class="paragrafo-projeto" data-translate="projeto2Descricao">
-                        Descrição do projeto 2.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- PROJETO 3 -->
-
-            <div class="projeto-card">
-
-                <img
-                    src="./img/projeto3.png"
-                    alt="Projeto 3"
-                    class="projetos-imagem"
-                >
-
-                <div class="textos-projetos">
-
-                    <h3 class="info-projeto" data-translate="projeto3">
-                        Projeto 3
-                    </h3>
-
-                    <p class="paragrafo-projeto" data-translate="projeto3Descricao">
-                        Descrição do projeto 3.
-                    </p>
-
-                </div>
-
-            
+        </div>
     </section> 
+
+    <section id="assistente" class="assistente">
+        <div class="assistente-card">
+            <div class="assistente-header">
+                <h2>Assistente de Código</h2>
+                <p>Peça ajuda ao assistente para corrigir, melhorar ou gerar código para este projeto.</p>
+            </div>
+            <form id="assistant-form" class="assistente-form">
+                <textarea id="assistant-prompt" class="campo-form" rows="5" placeholder="Descreva o que você quer que a IA faça..."></textarea>
+                <button type="submit" class="botao-form assistente-botao">Perguntar à IA</button>
+            </form>
+            <div id="assistant-response" class="assistant-response hidden"></div>
+        </div>
+    </section>
 
     <!-- CONTATO -->
 
     <section id="contato" class="contato">
 
-        <h2 class="contato-titulo" data-translate="contato" data>
+        <h2 class="contato-titulo" data-translate="contato">
             Entre em contato
         </h2>
 
@@ -227,7 +259,7 @@
                     placeholder="Envie sua mensagem aqui..."
                     rows="6"
                     id="mensagem"
-                    data-translate="placeholderMensagem"
+                    data-translate-placeholder="mensagemPlaceholder"
                 ></textarea>
 
             </div>
@@ -244,7 +276,7 @@
             <div class="QR-card" id="qr-code">
 
                     <img
-                        src="./img/qr.png"
+                        src="./img/qr.code.png"
                         alt="QR Code"
                         class="qr-imagem"
                     >
@@ -283,69 +315,539 @@
 
         window.open(url, '_blank');
     }
+
+    const COMMENT_API = '/api/comments';
+    const ASSISTANT_API = '/api/assistant';
+    const CURRENT_USER_KEY = 'portfolio-current-user';
+    const HATE_WORDS = [
+        'ódio',
+        'hate',
+        'racista',
+        'racismo',
+        'preconceito',
+        'xenofobia',
+        'homofobia',
+        'intolerância'
+    ];
+    let currentUser = null;
+
+    function loadCurrentUser() {
+        try {
+            return JSON.parse(localStorage.getItem(CURRENT_USER_KEY));
+        } catch {
+            return null;
+        }
+    }
+
+    function saveCurrentUser(user) {
+        localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
+        currentUser = user;
+    }
+
+    function clearCurrentUser() {
+        localStorage.removeItem(CURRENT_USER_KEY);
+        currentUser = null;
+    }
+
+    function renderUserStatus() {
+        const status = document.getElementById('user-status');
+        if (!status) return;
+
+        if (currentUser) {
+            const roleLabel = currentUser.role === 'moderador' ? ` (${textos[idioma].moderator})` : '';
+            status.innerHTML = `${textos[idioma].loggedAs}: <strong>${currentUser.username}${roleLabel}</strong> <button type="button" class="botao-form botao-logout" id="logout-button">${textos[idioma].logout}</button>`;
+            const logoutBtn = document.getElementById('logout-button');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', logout);
+            }
+        } else {
+            status.innerHTML = `<a href="login.html" class="menu-link">${textos[idioma].loginLink}</a> | <a href="register.html" class="menu-link">${textos[idioma].registerLink}</a>`;
+        }
+    }
+
+    function updateCurrentUserName() {
+        const nameField = document.getElementById('current-user-name');
+        if (nameField) {
+            nameField.textContent = currentUser ? currentUser.username : '';
+        }
+    }
+
+    function setCommentAccess() {
+        const form = document.getElementById('comentario-form');
+        const authMessage = document.getElementById('auth-required-message');
+        if (currentUser) {
+            authMessage.classList.add('hidden');
+            form.classList.remove('hidden');
+        } else {
+            authMessage.classList.remove('hidden');
+            form.classList.add('hidden');
+        }
+    }
+
+    async function loadComments() {
+        try {
+            const response = await fetch(COMMENT_API);
+            if (!response.ok) throw new Error('Falha ao carregar comentários');
+            return await response.json();
+        } catch (error) {
+            console.error(error);
+            return [];
+        }
+    }
+
+    function formatDate(time) {
+        return new Date(time).toLocaleString(idioma === 'pt' ? 'pt-BR' : 'en-US', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    }
+
+    function containsHate(text) {
+        const lower = text.toLowerCase();
+        return HATE_WORDS.some(word => lower.includes(word));
+    }
+
+    async function md5(value) {
+        const buffer = new TextEncoder().encode(value);
+        const hashBuffer = await crypto.subtle.digest('MD5', buffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function getGravatarUrl(email) {
+        if (!email) return '';
+        const normalized = email.trim().toLowerCase();
+        const hash = await md5(normalized);
+        return `https://www.gravatar.com/avatar/${hash}?d=identicon&s=96`;
+    }
+
+    async function renderComments() {
+        const list = document.getElementById('comentario-lista');
+        const comments = await loadComments();
+        const canModerate = currentUser && currentUser.role === 'moderador';
+
+        list.innerHTML = '';
+
+        if (!comments.length) {
+            const empty = document.createElement('p');
+            empty.className = 'sem-comentarios';
+            empty.textContent = textos[idioma].noComments;
+            list.appendChild(empty);
+            return;
+        }
+
+        for (const comment of comments) {
+            const card = document.createElement('div');
+            card.className = 'comentario-card';
+
+            const header = document.createElement('div');
+            header.className = 'comentario-cabecalho';
+
+            const author = document.createElement('strong');
+            author.textContent = comment.username;
+            if (comment.role === 'moderador') {
+                const modBadge = document.createElement('span');
+                modBadge.className = 'comentario-badge moderator';
+                modBadge.textContent = 'MOD';
+                author.appendChild(document.createTextNode(' '));
+                author.appendChild(modBadge);
+            }
+
+            const date = document.createElement('span');
+            date.textContent = formatDate(comment.date);
+
+            header.appendChild(author);
+            header.appendChild(date);
+
+            const avatarWrapper = document.createElement('div');
+            avatarWrapper.className = 'comentario-avatar';
+            const avatarImg = document.createElement('img');
+            avatarImg.className = 'comentario-avatar-img';
+            avatarImg.alt = `${comment.username} avatar`;
+            avatarImg.src = await getGravatarUrl(comment.email) || 'https://www.gravatar.com/avatar/?d=identicon&s=96';
+            avatarImg.onerror = () => {
+                avatarWrapper.textContent = comment.username.charAt(0).toUpperCase();
+            };
+            avatarWrapper.appendChild(avatarImg);
+            header.insertBefore(avatarWrapper, author);
+
+            const text = document.createElement('p');
+            text.className = 'comentario-texto';
+            text.textContent = comment.text;
+
+            const meta = document.createElement('div');
+            meta.className = 'comentario-meta';
+
+            const importanceBadge = document.createElement('span');
+            importanceBadge.className = `comentario-badge ${comment.importance || 'low'}`;
+            importanceBadge.textContent = `Importância: ${comment.importance || 'low'}`;
+            meta.appendChild(importanceBadge);
+
+            const relevanceBadge = document.createElement('span');
+            relevanceBadge.className = `comentario-badge ${comment.relevance === 'relevante' ? 'high' : comment.relevance === 'neutra' ? 'medium' : 'low'}`;
+            relevanceBadge.textContent = `Relevância: ${comment.relevance || 'unknown'}`;
+            meta.appendChild(relevanceBadge);
+
+            const reputationBadge = document.createElement('span');
+            const repLabel = comment.reputation || (comment.reputationScore !== undefined ? comment.reputationScore : 'neutral');
+            reputationBadge.className = `comentario-badge ${comment.reputation || 'neutral'}`;
+            reputationBadge.textContent = `Reputação: ${repLabel}`;
+            meta.appendChild(reputationBadge);
+
+            if (comment.classifierExplanation) {
+                const explanationMeta = document.createElement('div');
+                explanationMeta.className = 'comentario-detail';
+                explanationMeta.textContent = `Classificador IA: ${comment.classifierExplanation}`;
+                card.appendChild(explanationMeta);
+            }
+
+            if (canModerate) {
+                const emailEl = document.createElement('div');
+                emailEl.className = 'comentario-detail';
+                emailEl.textContent = `Email: ${comment.email || ''}`;
+                card.appendChild(emailEl);
+
+                const ipEl = document.createElement('div');
+                ipEl.className = 'comentario-detail';
+                ipEl.textContent = `IP: ${comment.ip || ''}`;
+                card.appendChild(ipEl);
+
+                const explanationEl = document.createElement('div');
+                explanationEl.className = 'comentario-detail';
+                explanationEl.textContent = `IA classificador: ${comment.classifierExplanation || 'sem explicação'}`;
+                card.appendChild(explanationEl);
+            }
+
+            const actions = document.createElement('div');
+            actions.className = 'comentario-acoes';
+
+            if (canModerate) {
+                const removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.className = 'botao-form botao-apagar';
+                removeButton.textContent = textos[idioma].removeComment;
+                removeButton.addEventListener('click', () => removeComment(comment.id));
+                actions.appendChild(removeButton);
+
+                ['relevante','neutra','irrelevante'].forEach(level => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'botao-form';
+                    btn.style.marginLeft = '0.5rem';
+                    btn.textContent = level;
+                    btn.addEventListener('click', () => setRelevance(comment.id, level));
+                    actions.appendChild(btn);
+                });
+            }
+
+            card.appendChild(header);
+            card.appendChild(meta);
+            card.appendChild(text);
+
+            if (comment.hate) {
+                const hateNotice = document.createElement('div');
+                hateNotice.className = 'comentario-aviso';
+                hateNotice.textContent = textos[idioma].hateWarning;
+                card.appendChild(hateNotice);
+            }
+
+            card.appendChild(actions);
+            list.appendChild(card);
+        }
+    }
+
+    async function addComment(event) {
+        event.preventDefault();
+        if (!currentUser) return;
+
+        const textInput = document.getElementById('comentario-texto');
+        const text = textInput.value.trim();
+        const emailInput = document.getElementById('comentario-email');
+        const email = emailInput ? emailInput.value.trim() : '';
+
+        if (!text || !email) return;
+
+        // simple email validation
+        const emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+        if (!emailRe.test(email)) return;
+
+        const payload = {
+            username: currentUser.username,
+            role: currentUser.role,
+            text,
+            hate: containsHate(text),
+            email
+        };
+
+        try {
+            const response = await fetch(COMMENT_API, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) throw new Error('Falha ao enviar comentário');
+            textInput.value = '';
+            await renderComments();
+            document.getElementById('comentario-lista')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function askAssistant(event) {
+        event.preventDefault();
+
+        const promptField = document.getElementById('assistant-prompt');
+        const responseBox = document.getElementById('assistant-response');
+        const prompt = promptField.value.trim();
+        if (!prompt) return;
+
+        responseBox.textContent = 'Aguardando resposta do assistente...';
+        responseBox.classList.remove('hidden');
+        responseBox.classList.add('loading');
+
+        try {
+            const response = await fetch(ASSISTANT_API, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt })
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(errorText || 'Falha ao consultar o assistente');
+            }
+
+            const data = await response.json();
+            responseBox.textContent = data.answer || 'Nenhuma resposta retornada pelo assistente.';
+        } catch (error) {
+            responseBox.textContent = `Erro: ${error.message}`;
+            console.error(error);
+        } finally {
+            responseBox.classList.remove('loading');
+        }
+    }
+
+    async function removeComment(id) {
+        try {
+            const response = await fetch(`${COMMENT_API}/${id}`, {
+                method: 'DELETE'
+            });
+            if (!response.ok) throw new Error('Falha ao remover comentário');
+            await renderComments();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function setRelevance(id, relevance) {
+        if (!currentUser || currentUser.role !== 'moderador') return;
+        try {
+            const response = await fetch(`${COMMENT_API}/${id}/relevance`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ moderatorUsername: currentUser.username, relevance })
+            });
+            if (!response.ok) throw new Error('Falha ao atualizar relevância');
+            await renderComments();
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    function logout() {
+        clearCurrentUser();
+        renderUserStatus();
+        updateCurrentUserName();
+        setCommentAccess();
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const form = document.getElementById('comentario-form');
+        if (form) form.addEventListener('submit', addComment);
+
+        const cartaLink = document.querySelector('a[href="#carta"]');
+        if (cartaLink) {
+            cartaLink.addEventListener('click', event => {
+                event.preventDefault();
+                document.getElementById('carta')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+
+        const assistantForm = document.getElementById('assistant-form');
+        if (assistantForm) {
+            assistantForm.addEventListener('submit', askAssistant);
+        }
+
+        currentUser = loadCurrentUser();
+
+        renderUserStatus();
+        updateCurrentUserName();
+        setCommentAccess();
+        await renderComments();
+    });
 </script>
 <script>
 let idioma = "pt";
 
 const textos = {
     pt: {
-        iniciomenu: "Início",
-        sobreMenu: "Sobre",
-        projetosMenu: "Projetos",
-        formacaoMenu: "Formação",
-        contatoMenu: "Contato",
-        qrCodeMenu: "QR Code",
-        titulo: "Heitor Gabriel",
-        subtitulo: "Sou um desenvolvedor front-end",
-        sobre: "Sobre mim",
-        sobreTexto: "Tenho experiência em HTML, CSS e JavaScript, e estou sempre buscando aprender novas tecnologias para aprimorar minhas habilidades.",
-        projetos: "Meus projetos",
-        formacao: "Formação",
-        formacaoTexto: "Curso de Desenvolvimento Web - Universidade XYZ (2020-2022)",
-        contato: "Entre em contato",
-        mensagemPlaceholder: "Envie sua mensagem aqui...",
-        qrTitulo: "QR Code do portfólio",
-        qrTexto: "Escaneie o QR Code para acessar meu portfólio!"
-        carta: "Carta de Recomendações."
-    },
-    en: {
-        iniciomenu: "Home",
-        sobreMenu: "About",
-        projetosMenu: "Projects",
-        formacaoMenu: "Education",
-        contatoMenu: "Contact",
-        qrCodeMenu: "QR Code",
-        titulo: "Heitor Gabriel",
-        subtitulo: "I am a front-end developer",
-        sobre: "About me",
-        sobreTexto: "I have experience in HTML, CSS and JavaScript, and I am always looking to learn new technologies to improve my skills.",
-        projetos: "My projects",
-        formacao: "Education",
-        formacaoTexto: "Web Development Course - XYZ University (2020-2022)",
-        contato: "Contact me",
-        mensagemPlaceholder: "Send your message here...",
-        qrTitulo: "Portfolio QR Code",
-        qrTexto: "Scan the QR Code to access my portfolio!"
-        carta: "Letter of recommendations."
-    }
+    inicioMenu: "Início",
+    sobreMenu: "Sobre",
+    projetosMenu: "Projetos",
+    formacaoMenu: "Formação",
+    contatoMenu: "Contato",
+    Cartamenu: "Cartas de Recomendação",
+    qrCodeMenu: "QR Code",
+
+    titulo: "Heitor Gabriel",
+    subtitulo: "Sou um desenvolvedor front-end",
+
+    sobre: "Sobre mim",
+
+    sobreTexto: "Tenho experiência em HTML, CSS e JavaScript, e estou sempre buscando aprender novas tecnologias para aprimorar minhas habilidades.",
+
+    projetos: "Meus projetos",
+
+    formacao: "Formação",
+
+    formacaoTexto: "Curso de Desenvolvimento Web - Código Kid (2022-2026)",
+
+    contato: "Entre em contato",
+
+    mensagem: "Enviar via WhatsApp",
+
+    mensagemPlaceholder: "Envie sua mensagem aqui...",
+
+    commentsTitle: "Deixe um comentário",
+
+    commentsIntro: "Leia e deixe sua recomendação abaixo. Comentários de ódio podem ser removidos.",
+
+    commentNamePlaceholder: "Seu nome",
+
+    commentTextPlaceholder: "Escreva seu comentário...",
+
+    commentSubmit: "Enviar comentário",
+
+    noComments: "Nenhum comentário ainda. Seja o primeiro!",
+
+    removeComment: "Remover",
+
+    hateWarning: "Comentário marcado como possível ódio.",
+
+    loggedAs: "Logado como",
+    moderator: "Moderador",
+    logout: "Sair",
+    loginLink: "Entrar",
+    registerLink: "Cadastrar",
+
+    projeto1: "Projeto 1",
+
+    projeto1Descricao: "Descrição do projeto 1.",
+
+    qrTitulo: "QR Code do portfólio",
+
+    qrTexto: "Escaneie o QR Code para acessar meu portfólio!"
+},
+   en: {
+    inicioMenu: "Home",
+    sobreMenu: "About",
+    projetosMenu: "Projects",
+    formacaoMenu: "Education",
+    contatoMenu: "Contact",
+    Cartamenu: "Recommendation Letters",
+    qrCodeMenu: "QR Code",
+
+    titulo: "Heitor Gabriel",
+    subtitulo: "I am a Front-end Developer",
+
+    sobre: "About Me",
+
+    sobreTexto: "I have experience in HTML, CSS and JavaScript, and I am always learning new technologies.",
+
+    projetos: "Projects",
+
+    formacao: "Education",
+
+    formacaoTexto: "Web Development Course - Código Kid (2022-2026)",
+
+    contato: "Contact",
+
+    mensagem: "Send via WhatsApp",
+
+    mensagemPlaceholder: "Send your message here...",
+
+    commentsTitle: "Leave a comment",
+
+    commentsIntro: "Read and leave your recommendation below. Hate comments can be removed.",
+
+    commentNamePlaceholder: "Your name",
+
+    commentTextPlaceholder: "Write your comment...",
+
+    commentSubmit: "Send comment",
+
+    noComments: "No comments yet. Be the first!",
+
+    removeComment: "Remove",
+
+    hateWarning: "Comment flagged as possible hate speech.",
+    
+    loggedAs: "Logged in as",
+    moderator: "Moderator",
+    logout: "Logout",
+    loginLink: "Login",
+    registerLink: "Register",
+
+    projeto1: "Project 1",
+
+    projeto1Descricao: "Description of project 1.",
+
+    qrTitulo: "Portfolio QR Code",
+
+    qrTexto: "Scan the QR Code to access my portfolio!"
+  }
 };
 
 function trocarIdioma() {
+
     idioma = idioma === "pt" ? "en" : "pt";
 
-    // textos normais
     document.querySelectorAll("[data-translate]").forEach(el => {
-        const key = el.getAttribute("data-translate");
-        el.textContent = textos[idioma][key];
+
+        const chave = el.dataset.translate;
+
+        if (textos[idioma][chave]) {
+            el.textContent = textos[idioma][chave];
+        }
+
     });
 
-    // 🔥 PLACEHOLDER (AQUI QUE ENTRA)
     document.querySelectorAll("[data-translate-placeholder]").forEach(el => {
-        const key = el.getAttribute("data-translate-placeholder");
-        el.setAttribute("placeholder", textos[idioma][key]);
+
+        const chave = el.dataset.translatePlaceholder;
+
+        if (textos[idioma][chave]) {
+            el.placeholder = textos[idioma][chave];
+        }
+
     });
+
+    renderComments();
+
 }
 </script>
 </body>
+
+</html>
+
 
 </html>
